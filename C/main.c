@@ -1,26 +1,26 @@
 #include <stdio.h>
 
-void find_three_largest(int a[], int n, int* largest, int* sec_largest, int* third_largest) {	// °¡Àå Å« °ª, µÎ¹øÂ°·Î Å« °ª, ¼¼¹øÂ°·Î Å« °ª Ã£±â
+void find_three_largest(int a[], int n, int* largest, int* sec_largest, int* third_largest) {	// ê°€ì¥ í° ê°’, ë‘ë²ˆì§¸ë¡œ í° ê°’, ì„¸ë²ˆì§¸ë¡œ í° ê°’
 	*largest = a[0];
 	*sec_largest = a[0];
 	*third_largest = a[0];
 
-	for (int i = 1; i < n; i++) {	// °¡Àå Å« °ª
+	for (int i = 1; i < n; i++) {	// ê°€ì¥ í° ê°’
 		if (*largest < a[i]) {
 			*largest = a[i];
 		}
 	}
 
-	for (int i = 1; i < n; i++) {	// µÎ¹øÂ°·Î Å« °ª
-		if (a[i] < *largest) {		// °¡Àå Å« °ªº¸´Ù ÀÛÀ» ¶§
+	for (int i = 1; i < n; i++) {	// ë‘ë²ˆì§¸ë¡œ í° ê°’
+		if (a[i] < *largest) {		// ê°€ì¥ í° ê°’ë³´ë‹¤ ì‘ì„ ë•Œ
 			if (*sec_largest < a[i]) {
 				*sec_largest = a[i];
 			}
 		}
 	}
 
-	for (int i = 1; i < n; i++) {	// ¼¼¹øÂ°·Î Å« °ª
-		if (a[i] < *sec_largest) {	// µÎ¹øÂ°·Î Å« °ªº¸´Ù ÀÛÀ» ¶§
+	for (int i = 1; i < n; i++) {	// ì„¸ë²ˆì§¸ë¡œ í° ê°’
+		if (a[i] < *sec_largest) {	// ë‘ë²ˆì§¸ë¡œ í° ê°’ë³´ë‹¤ ì‘ì„ ë•Œ
 			if (*third_largest < a[i]) {
 				*third_largest = a[i];
 			}
@@ -30,27 +30,27 @@ void find_three_largest(int a[], int n, int* largest, int* sec_largest, int* thi
 
 int one_pointer(void) {
 	int arr[3] = { 11, 22, 33 };
-	int* ptr = arr;	// int *ptr=&arr[0];¿Í °°Àº ¹®Àå
+	int* ptr = arr;	// int *ptr=&arr[0];ì™€ ê°™ì€ ë¬¸ì¥
 	printf("%d %d %d \n", *ptr, *(ptr + 1), *(ptr + 2));
 
-	printf("%d ", *ptr); ptr++;		// printf ÇÔ¼öÈ£Ãâ ÈÄ, ptr++ ½ÇÇà
+	printf("%d ", *ptr); ptr++;		// printf í•¨ìˆ˜í˜¸ì¶œ í›„, ptr++ ì‹¤í–‰
 	printf("%d ", *ptr); ptr++;
-	printf("%d ", *ptr); ptr--;		// printf ÇÔ¼öÈ£Ãâ ÈÄ, ptr-- ½ÇÇà
+	printf("%d ", *ptr); ptr--;		// printf í•¨ìˆ˜í˜¸ì¶œ í›„, ptr-- ì‹¤í–‰
 	printf("%d ", *ptr); ptr--;
 	printf("%d ", *ptr); printf("\n");
 	return 0;
 }
 
 int two_pointer(void) {
-	char str1[] = "My string";		// º¯¼ö ÇüÅÂÀÇ ¹®ÀÚ¿­
-	char* str2 = "Your String";	// »ó¼ö ÇüÅÂÀÇ ¹®ÀÚ¿­
+	char str1[] = "My string";		// ë³€ìˆ˜ í˜•íƒœì˜ ë¬¸ìì—´
+	char* str2 = "Your String";	// ìƒìˆ˜ í˜•íƒœì˜ ë¬¸ìì—´
 	printf("%s %s \n", str1, str2);
 
-	str2 = "Our String";		// °¡¸®Å°´Â ´ë»ó º¯°æ
+	str2 = "Our String";		// ê°€ë¦¬í‚¤ëŠ” ëŒ€ìƒ ë³€ê²½
 	printf("%s %s \n", str1, str2);
 
-	str1[0] = 'X';		// ¹®ÀÚ¿­ º¯°æ ¼º°ø!
-	//str2[0] = 'X';		// ¹®ÀÚ¿­ º¯°æ ½ÇÆĞ!
+	str1[0] = 'X';		// ë¬¸ìì—´ ë³€ê²½ ì„±ê³µ!
+	//str2[0] = 'X';		// ë¬¸ìì—´ ë³€ê²½ ì‹¤íŒ¨!
 	printf("%s %s \n", str1, str2);
 	return 0;
 }
@@ -61,11 +61,11 @@ int main(void) {
 
 	int largest, sec_largest, third_largest;
 	int a[] = { 1, 11, 3, 18, 8 };
-	find_three_largest(a, sizeof(a) / sizeof(a[0]), &largest, &sec_largest, &third_largest); // (¹è¿­, ¹è¿­±æÀÌ, largest ÁÖ¼Ò, sec_largest ÁÖ¼Ò, third_largest ÁÖ¼Ò)
+	find_three_largest(a, sizeof(a) / sizeof(a[0]), &largest, &sec_largest, &third_largest); // (ë°°ì—´, ë°°ì—´ê¸¸ì´, largest ì£¼ì†Œ, sec_largest ì£¼ì†Œ, third_largest ì£¼ì†Œ)
 
-	printf("ÇÔ¼ö ³»¿¡¼­ °¡Àå Å« °ªÀº : %d \n", largest);
-	printf("ÇÔ¼ö ³»¿¡¼­ µÎ¹øÂ°·Î Å« °ªÀº : %d \n", sec_largest);
-	printf("ÇÔ¼ö ³»¿¡¼­ ¼¼¹øÂ°·Î Å« °ªÀº : %d \n", third_largest);
+	printf("í•¨ìˆ˜ ë‚´ì—ì„œ ê°€ì¥ í° ê°’ì€ : %d \n", largest);
+	printf("í•¨ìˆ˜ ë‚´ì—ì„œ ë‘ë²ˆì§¸ë¡œ í° ê°’ì€ : %d \n", sec_largest);
+	printf("í•¨ìˆ˜ ë‚´ì—ì„œ ì„¸ë²ˆì§¸ë¡œ í° ê°’ì€ : %d \n", third_largest);
 
 	one_pointer();
 	two_pointer();
